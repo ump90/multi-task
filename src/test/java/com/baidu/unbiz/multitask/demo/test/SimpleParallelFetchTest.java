@@ -34,7 +34,7 @@ public class SimpleParallelFetchTest {
     private ParallelExePool parallelExePool;
 
     /**
-     * 正常并行查询测试
+     * 正常并行查询测试 
      */
     @Test
     public void testParallelFetch() {
