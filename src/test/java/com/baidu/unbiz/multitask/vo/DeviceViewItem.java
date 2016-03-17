@@ -5,7 +5,7 @@ package com.baidu.unbiz.multitask.vo;
  *
  * @author wangchongjie
  * @fileName DeviceViewItem.java
- * @dateTime 2015-7-3 上午10:52:25
+ * @since 2015-7-3 上午10:52:25
  */
 public class DeviceViewItem {
 

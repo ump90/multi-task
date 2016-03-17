@@ -24,8 +24,7 @@ import com.baidu.unbiz.multitask.task.thread.WorkUnit;
  * 报表基础工具类
  *
  * @author wangchongjie
- * @fileName ParallelExePool.java
- * @dateTime 2015-1-15 下午3:08:21
+ * @since 2015-1-15 下午3:08:21
  */
 @Component
 public class SimpleParallelExePool extends AbstractParallelExePool implements CustomizedParallelExePool {
@@ -35,7 +34,8 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     /**
      * 并行获取报表数据，计算结果保存在context中
      *
-     * @param taskPairs,查询方法及参数
+     * @param taskPairs 查询方法及参数
+     * @return TaskContext
      */
     public TaskContext submit(List<TaskPair> taskPairs) {
         // 使用默认超时时间fetch数据
@@ -45,7 +45,8 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     /**
      * 并行获取报表数据，计算结果保存在context中
      *
-     * @param taskPairs,查询方法及参数
+     * @param taskPairs 查询方法及参数
+     * @return TaskContext
      */
     public TaskContext submit(TaskPair... taskPairs) {
         // 使用默认超时时间fetch数据
@@ -55,8 +56,9 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     /**
      * 并行获取报表数据，计算结果保存在context中 可指定单个task的的timeout时间,单位为毫秒
      *
-     * @param policy,           执行策略，超时时间等
-     * @param taskPairs,查询方法及参数
+     * @param policy 执行策略，超时时间等
+     * @param taskPairs 查询方法及参数
+     * @return TaskContext
      */
     public TaskContext submit(ExecutePolicy policy, TaskPair... taskPairs) {
         return this.submit(null, policy, taskPairs);
@@ -66,8 +68,9 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     /**
      * 并行获取报表数据，计算结果保存在context中 可指定单个task的的timeout时间,单位为毫秒
      *
-     * @param executor,         线程池
-     * @param taskPairs,查询方法及参数
+     * @param executor 线程池
+     * @param taskPairs 查询方法及参数
+     * @return TaskContext
      */
     public TaskContext submit(Executor executor, TaskPair... taskPairs) {
         return this.submit(executor, DefautExecutePolicy.instance(), taskPairs);
@@ -76,8 +79,9 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     /**
      * 并行获取报表数据，计算结果保存在context中 可指定单个task的的timeout时间,单位为毫秒
      *
-     * @param policy,           执行策略，超时时间等
-     * @param taskPairs,查询方法及参数
+     * @param policy 执行策略，超时时间等
+     * @param taskPairs 查询方法及参数
+     * @return TaskContext
      */
     public TaskContext submit(Executor executor, ExecutePolicy policy, TaskPair... taskPairs) {
 
@@ -101,7 +105,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param <PARAM>
      * @param <RESULT>
      *
-     * @return
+     * @return RESULT
      */
     public <PARAM, RESULT> RESULT submit(TaskPair taskPair, ForkJoin<PARAM, RESULT> forkJoin) {
         return submit(DefautExecutePolicy.instance(), taskPair, forkJoin);
@@ -115,7 +119,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param <PARAM>
      * @param <RESULT>
      *
-     * @return
+     * @return RESULT
      */
     public <PARAM, RESULT> RESULT submit(ExecutePolicy policy, TaskPair taskPair, ForkJoin<PARAM, RESULT> forkJoin) {
 

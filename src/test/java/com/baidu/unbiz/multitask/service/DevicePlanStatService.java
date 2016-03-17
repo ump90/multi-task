@@ -10,7 +10,7 @@ import com.baidu.unbiz.multitask.vo.DeviceViewItem;
  *
  * @author wangchongjie
  * @fileName DevicePlanStatService.java
- * @dateTime 2015-7-3 下午3:50:56
+ * @since 2015-7-3 下午3:50:56
  */
 public interface DevicePlanStatService {
 

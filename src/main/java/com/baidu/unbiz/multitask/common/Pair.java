@@ -10,8 +10,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * 一对通用对象组合
  * 
  * @author wangchongjie
- * @fileName InteralTaskPair.java
- * @dateTime 2015-7-15 下午7:10:47
+ * @since 2015-7-15 下午7:10:47
  */
 public class Pair<T1, T2> {
 
@@ -32,7 +31,7 @@ public class Pair<T1, T2> {
      * 
      * @param field1
      * @param field2
-     * @return
+     * @return Pair
      * @since 2015-7-28 by wangchongjie
      */
     public static <T1, T2> Pair<T1, T2> of(T1 field1, T2 field2) {
@@ -43,7 +42,7 @@ public class Pair<T1, T2> {
      * 包装一组Pair
      * 
      * @param pairs
-     * @return
+     * @return Pair
      * @since 2015-7-28 by wangchongjie
      */
     public static <T1, T2> List<Pair<T1, T2>> wrapList(Pair<T1, T2>...pairs) {

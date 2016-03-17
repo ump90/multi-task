@@ -7,8 +7,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * 可转型基类
  * 
  * @author wangchongjie
- * @fileName EnableCast.java
- * @dateTime 2014-11-21 下午7:59:21
+ * @since 2014-11-21 下午7:59:21
  */
 public class EnableCast {
 

@@ -5,8 +5,7 @@ package com.baidu.unbiz.multitask.log;
  * 线程日志级别的控制
  * 
  * @author wangchongjie
- * @fileName ThreadLog.java
- * @dateTime 2015-7-15 下午3:17:06
+ * @since 2015-7-15 下午3:17:06
  */
 public class ThreadLog {
     public static final int LEVEL_TRACE = 10;

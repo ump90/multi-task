@@ -6,8 +6,7 @@ import org.springframework.context.SmartLifecycle;
  * Spring生命周期控制
  * 
  * @author wangchongjie
- * @fileName SpringSmartLifeCycle.java
- * @dateTime 2015-7-3 下午3:57:03
+ * @since 2015-7-3 下午3:57:03
  */
 public abstract class SpringSmartLifeCycle implements SmartLifecycle {
 

@@ -8,10 +8,9 @@ import java.lang.annotation.Target;
 
 /**
  * 数据获取类型的Bean注解， 可将method转换为Spring的bean使用
- * 
+ *
  * @author wangchongjie
- * @fileName TaskBean.java
- * @dateTime 2015-7-3 下午3:50:56
+ * @since 2015-7-3 下午3:50:56
  */
 @Inherited
 @Target(ElementType.METHOD)
@@ -21,8 +20,7 @@ public @interface TaskBean {
     /**
      * task bean的名称
      * 
-     * @return
-     * @author wangchongjie
+     * @return bean name
      * @since 2015-8-17
      */
     String value();

@@ -16,8 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Class相关工具类
  * 
  * @author wangchongjie
- * @fileName ClassUtils.java
- * @dateTime 2014-7-16 下午3:02:20
+ * @since 2014-7-16 下午3:02:20
  */
 public class ClassUtils {
 
@@ -25,7 +24,7 @@ public class ClassUtils {
      * 获取某个类锁指定的泛型参数数组
      * 
      * @param c
-     * @return
+     * @return type
      */
     public static final Type[] getGenericTypes(Class<?> c) {
         Type superClass = c.getGenericSuperclass();
@@ -37,7 +36,7 @@ public class ClassUtils {
      * 获取一个类的所有字段
      * 
      * @param entityClass
-     * @return
+     * @return Field set
      */
     public static Set<Field> getAllFiled(Class<?> entityClass) {
 
@@ -64,7 +63,7 @@ public class ClassUtils {
      * 获取一个类的所有方法
      * 
      * @param entityClass
-     * @return
+     * @return Method set
      */
     public static Set<Method> getAllMethod(Class<?> entityClass) {
 
@@ -132,7 +131,7 @@ public class ClassUtils {
      * 
      * @param field
      * @param clazz
-     * @return
+     * @return Field
      * @since 2015-7-15 by wangchongjie
      */
     public static Field getFieldFromClass(String field, Class<? extends Object> clazz) {
@@ -158,7 +157,7 @@ public class ClassUtils {
      * 
      * @param field
      * @param cacheKey
-     * @return
+     * @return boolean
      * @since 2015-7-28 by wangchongjie
      */
     private static boolean fieldIsEffectAndCache(Field field, String cacheKey) {

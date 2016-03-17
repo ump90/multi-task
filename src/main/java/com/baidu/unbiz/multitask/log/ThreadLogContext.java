@@ -8,8 +8,7 @@ import java.util.Map;
  * 线程执行的上下文内容
  * 
  * @author wangchongjie
- * @fileName ThreadContext.java
- * @dateTime 2015-7-15 下午3:21:06
+ * @since 2015-7-15 下午3:21:06
  */
 public class ThreadLogContext {
 
@@ -63,8 +62,7 @@ public class ThreadLogContext {
 
     /**
      * 获取线程上下文
-     * 
-     * @param key
+     *
      */
     public static final Map<String, Object> getContext() {
         Map<String, Object> ctx = CTX_HOLDER.get();
@@ -90,7 +88,7 @@ public class ThreadLogContext {
      * 上下文中是否包含此key
      * 
      * @param key
-     * @return
+     * @return boolean
      */
     public static final boolean contains(String key) {
         Map<String, Object> ctx = CTX_HOLDER.get();
@@ -148,7 +146,7 @@ public class ThreadLogContext {
     /**
      * 获取线程日志的级别
      * 
-     * @return
+     * @return Integer
      * @since 2015-7-15 by wangchongjie
      */
     public static final Integer getThreadLog() {

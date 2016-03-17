@@ -12,8 +12,7 @@ import com.baidu.unbiz.multitask.exception.TaskBizException;
  * 并行抓取上线文环境
  * 
  * @author wangchongjie
- * @fileName TaskContext.java
- * @dateTime 2014-11-21 下午7:58:49
+ * @since 2014-11-21 下午7:58:49
  */
 public class TaskContext {
 

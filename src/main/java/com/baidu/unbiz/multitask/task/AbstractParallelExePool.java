@@ -13,8 +13,7 @@ import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
  * 报表基础工具类
  *
  * @author wangchongjie
- * @fileName ParallelExePool.java
- * @dateTime 2015-1-15 下午3:08:21
+ * @since 2015-1-15 下午3:08:21
  */
 public abstract class AbstractParallelExePool implements ParallelExePool {
 

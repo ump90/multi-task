@@ -10,8 +10,7 @@ import com.baidu.unbiz.multitask.utils.ClassUtils;
  * 通过new<T>的方式可以感知范型，也可自行传入
  * 
  * @author wangchongjie
- * @fileName AnnotationAware.java
- * @dateTime 2014-11-21 下午7:54:23
+ * @since 2014-11-21 下午7:54:23
  */
 public abstract class GenericsAware<T> {
     protected Class<T> entityClass;
@@ -29,8 +28,7 @@ public abstract class GenericsAware<T> {
      * 获取该类的某个成员变量
      * 
      * @param field
-     * @return
-     * @author wangchongjie
+     * @return field
      * @since 2015-8-17
      */
     public Field getFieldFromClass(String field) {
