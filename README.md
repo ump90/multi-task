@@ -27,17 +27,49 @@ Create a normal service class whose methods will be called parallely on later. F
 public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     
     @TaskBean("deviceStatFetcher")
-    public List<DeviceViewItem> queryPlanDeviceData(DeviceRequest req) {
+    public List<DeviceStatViewItem> queryPlanDeviceData(DeviceStatRequest req) {
         this.checkParam(req);
         return this.mockList1();
     }
 
     @TaskBean("deviceUvFetcher")
-    public List<DeviceViewItem> queryPlanDeviceUvData(DeviceRequest req) {
+    public List<DeviceUvViewItem> queryPlanDeviceUvData(DeviceUvRequest req) {
         this.checkParam(req);
         return this.mockList2();
     }
-    
+}
+```
+
+### 1.3 Applying parallely processing with defined @TaskBean task
+
+```
+    @Resource(name = "simpleParallelExePool")
+    private ParallelExePool parallelExePool;
+
+    public void testParallelFetch() {
+        DeviceStatRequest req1 = new DeviceStatRequest();
+        DeviceUvRequest req2 = new DeviceUvRequest();
+
+        TaskContext ctx = parallelExePool.submit(
+                new TaskPair("deviceStatFetcher", req1),
+                new TaskPair("deviceUvFetcher", req2));
+
+        List<DeviceStatViewItem> stat = ctx.getResult("deviceStatFetcher");
+        List<DeviceUvViewItem> uv = ctx.getResult("deviceUvFetcher");
+
+        Assert.notEmpty(stat);
+        Assert.notEmpty(uv);
+    }
+```
+
+### 1.4 Some other TaskBean
+
+Besides single param method, We also could define multi-param or void param' method for task by using @TaskBean.
+
+```
+@TaskService
+public class OtherStatServiceImpl implements OtherStatService {
+   
     @TaskBean("multiParamFetcher")
     public List<DeviceViewItem> queryPlanDeviceDataByMultiParam(String p1, int p2, int p3) {
         return this.mockList1();
@@ -63,27 +95,4 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
         return this.mockList1();
     }
 }
-```
-
-### 1.3 Applying parallely processing with defined @TaskBean task
-
-```
-    @Resource(name = "simpleParallelExePool")
-    private ParallelExePool parallelExePool;
-
-    public void testParallelFetch() {
-        DeviceRequest req1 = new DeviceRequest();
-        DeviceRequest req2 = new DeviceRequest();
-
-        TaskContext ctx =
-                parallelExePool.submit(
-                        new TaskPair("deviceStatFetcher", req1),
-                        new TaskPair("deviceUvFetcher", req2));
-
-        List<DeviceViewItem> stat = ctx.getResult("deviceStatFetcher");
-        List<DeviceViewItem> uv = ctx.getResult("deviceUvFetcher");
-
-        Assert.notEmpty(stat);
-        Assert.notEmpty(uv);
-    }
 ```
