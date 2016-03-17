@@ -30,7 +30,7 @@ public class ThreadPoolConfigRefreshTest {
      * 正常并行查询测试
      */
     @Test
-    public void tesInitThreadPoolConfig() {
+    public void testInitThreadPoolConfig() {
 
         TaskManager.refreshConfig(new DefaultThreadPoolConfig() {
             public int maxTaskNum() {

@@ -39,7 +39,6 @@ public class SimpleParallelFetchTest {
     @Test
     public void testParallelFetch() {
         QueryParam qp = new QueryParam();
-        new TaskPair("deviceStatFetcher", DeviceRequest.build(qp));
 
         TaskContext ctx =
                 parallelExePool.submit(

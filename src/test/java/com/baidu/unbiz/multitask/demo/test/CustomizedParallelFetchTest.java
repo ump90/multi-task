@@ -60,7 +60,7 @@ public class CustomizedParallelFetchTest {
      * 通过客户端线程池并行查询测试,同时框架自带线程池也执行
      */
     @Test
-    public void testParallelFetchByClientExecutorPoolWithOrigalPollToghther() {
+    public void testParallelFetchByClientExecutorPoolWithOrigalPoolToghther() {
 
         ExecutorService threadPool =
                 new ThreadPoolExecutor(2, 5, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(2),
