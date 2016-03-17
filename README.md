@@ -22,7 +22,7 @@ In order to use Multi-Task within a Maven project, simply add the following depe
 
 Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl class is created as below.
 
-    @TaskService
+@TaskService
 public class DevicePlanStatServiceImpl implements DevicePlanStatService {
 
     @TaskBean("deviceStatFetcher")
@@ -61,27 +61,8 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     public List<DeviceViewItem> queryPlanDeviceDataByVoidParam() {
         return this.mockList2();
     }
-
-    private void checkParam(DeviceRequest req) {
-        req.getDeviceIds();
-        // do sth
-    }
-
-    private List<DeviceViewItem> mockList1() {
-        List<DeviceViewItem> list = new ArrayList<DeviceViewItem>();
-        list.add(new DeviceViewItem());
-        list.add(new DeviceViewItem());
-        return list;
-    }
-
-    private List<DeviceViewItem> mockList2() {
-        List<DeviceViewItem> list = new ArrayList<DeviceViewItem>();
-        list.add(new DeviceViewItem());
-        list.add(new DeviceViewItem());
-        list.add(new DeviceViewItem());
-        return list;
-    }
 }
+
 
 
 
