@@ -11,13 +11,13 @@ This chapter will show you how to get started with Multi-Task.
 ### 1.1 Prerequisite
 
 In order to use Multi-Task within a Maven project, simply add the following dependency to your pom.xml. 
-
+```
 	<dependency>
     	<groupId>com.baidu.unbiz</groupId>
     	<artifactId>multi-task</artifactId>
     	<version>1.0.0</version>
 	</dependency>
-
+```
 ### 1.2 Create a normal service with annotation
 
 Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl class is created as below.
@@ -65,6 +65,25 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
 }
 ```
 
+### 1.3 Applying parallely processing with defined @TaskBean task
 
+```
+    @Resource(name = "simpleParallelExePool")
+    private ParallelExePool parallelExePool;
 
-### 1.3 Applying constraints
+    public void testParallelFetch() {
+        DeviceRequest req1 = new DeviceRequest();
+        DeviceRequest req2 = new DeviceRequest();
+
+        TaskContext ctx =
+                parallelExePool.submit(
+                        new TaskPair("deviceStatFetcher", req1),
+                        new TaskPair("deviceUvFetcher", req2));
+
+        List<DeviceViewItem> stat = ctx.getResult("deviceStatFetcher");
+        List<DeviceViewItem> uv = ctx.getResult("deviceUvFetcher");
+
+        Assert.notEmpty(stat);
+        Assert.notEmpty(uv);
+    }
+```
