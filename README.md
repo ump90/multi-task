@@ -94,11 +94,76 @@ public class OtherStatServiceImpl implements OtherStatService {
 }
 ```
 
-##  Examples
+## 2 Advanced features
+### 2.1 Explicit define task
+```
+@Service
+public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
+
+    public <E> List<DeviceViewItem> work(E request) {
+        if (request instanceof  DeviceRequest) {
+            // do sth;
+            return result;
+        }
+        return null;
+    }
+}
+```
+
+### 2.2 Explicit config thread pool
+```
+    <bean name="xmlThreadPoolConfig" class="com.baidu.unbiz.multitask.constants.XmlThreadPoolConfig">
+        <property name="coreTaskNum" value="12"/>
+        <property name="maxTaskNum" value="22"/>
+        <property name="maxCacheTaskNum" value="4"/>
+        <property name="queueFullSleepTime" value="10"/>
+        <property name="taskTimeoutMillSeconds" value="5000"/>
+    </bean>
+
+    <bean name="simpleParallelExePool" class="com.baidu.unbiz.multitask.task.SimpleParallelExePool">
+        <constructor-arg ref="xmlThreadPoolConfig"/>
+    </bean>
+```
+
+### 2.3 Fork Join
+```
+    public void testParallelForkJoinFetch() {
+        TaskPair taskPair = new TaskPair("deviceStatFetcher", new DeviceRequest()));
+
+        ForkJoin<DeviceRequest, List<DeviceViewItem>> forkJoin = new ForkJoin<DeviceRequest, List<DeviceViewItem>>() {
+
+            public List<DeviceRequest> fork(DeviceRequest deviceRequest) {
+                List<DeviceRequest> reqs = new ArrayList<DeviceRequest>();
+                reqs.add(deviceRequest);
+                reqs.add(deviceRequest);
+                reqs.add(deviceRequest);
+                return reqs;
+            }
+
+            public List<DeviceViewItem> join(List<List<DeviceViewItem>> lists) {
+                List<DeviceViewItem> result = new ArrayList<DeviceViewItem>();
+                if (CollectionUtils.isEmpty(lists)) {
+                    return result;
+                }
+                for (List<DeviceViewItem> res : lists) {
+                    result.addAll(res);
+                }
+                return result;
+            }
+        };
+
+        List<DeviceViewItem> result = parallelExePool.submit(taskPair, forkJoin);
+        Assert.notEmpty(result);
+    }
+```
+
+## 3. Examples
 All test cases or samples can be found from the below links:
 [Samples](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)
+
 [Test cases](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test)
+
 [Optional resources](https://github.com/wangchongjie/multi-task/tree/master/src/test/resources)
 
-##  License
+## 4. License
 This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
