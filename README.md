@@ -160,10 +160,10 @@ public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
 ## 3. Examples
 All test cases or samples can be found from the below links:
 
-[Samples](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)
+[Samples - How to define task](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)
 
-[Test cases](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test)
+[Test cases - How to use task](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test)
 
-[Optional resources](https://github.com/wangchongjie/multi-task/tree/master/src/test/resources)
+[Resources - Optional, not necessary](https://github.com/wangchongjie/multi-task/tree/master/src/test/resources)
 
 This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
