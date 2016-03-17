@@ -22,8 +22,9 @@ In order to use Multi-Task within a Maven project, simply add the following depe
 
 Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl class is created as below.
 
-    @TaskService
-    public class DevicePlanStatServiceImpl implements DevicePlanStatService {
+```
+@TaskService
+public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     
     @TaskBean("deviceStatFetcher")
     public List<DeviceViewItem> queryPlanDeviceData(DeviceRequest req) {
@@ -36,22 +37,7 @@ Create a normal service class whose methods will be called parallely on later. F
         this.checkParam(req);
         return this.mockList2();
     }
-
-    @TaskBean("doSthVerySlowFetcher")
-    public List<DeviceViewItem> queryPlanDeviceDataWithBadNetwork(DeviceRequest req) {
-        try {
-            Thread.sleep(900000L);
-        } catch (InterruptedException e) {
-            // do nothing, just for test
-        }
-        return this.mockList1();
-    }
-
-    @TaskBean("doSthFailWithExceptionFetcher")
-    public List<DeviceViewItem> queryPlanDeviceDataWithBusinessException(DeviceRequest req) {
-        throw new BusinessException("Some business com.baidu.unbiz.multitask.vo.exception, just for test!");
-    }
-
+    
     @TaskBean("multiParamFetcher")
     public List<DeviceViewItem> queryPlanDeviceDataByMultiParam(String p1, int p2, int p3) {
         return this.mockList1();
@@ -61,10 +47,23 @@ Create a normal service class whose methods will be called parallely on later. F
     public List<DeviceViewItem> queryPlanDeviceDataByVoidParam() {
         return this.mockList2();
     }
+    
+    @TaskBean("doSthFailWithExceptionFetcher")
+    public List<DeviceViewItem> queryPlanDeviceDataWithBusinessException(DeviceRequest req) {
+        throw new BusinessException("Some business com.baidu.unbiz.multitask.vo.exception, just for test!");
     }
-
-
-
+    
+    @TaskBean("doSthVerySlowFetcher")
+    public List<DeviceViewItem> queryPlanDeviceDataWithBadNetwork(DeviceRequest req) {
+        try {
+            Thread.sleep(900000L);
+        } catch (InterruptedException e) {
+            // do nothing, just for test
+        }
+        return this.mockList1();
+    }
+}
+```
 
 
 
