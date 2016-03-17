@@ -9,7 +9,6 @@ Multi-task is a Java framework for parallel processing which is based annotation
 This chapter will show you how to get started with Multi-Task.
 
 ### 1.1 Prerequisite
-
 In order to use Multi-Task within a Maven project, simply add the following dependency to your pom.xml. 
 ```
 	<dependency>
@@ -18,10 +17,9 @@ In order to use Multi-Task within a Maven project, simply add the following depe
     	<version>1.0.0</version>
 	</dependency>
 ```
+
 ### 1.2 Create a normal service with annotation
-
 Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl class is created as below.
-
 ```
 @TaskService
 public class DevicePlanStatServiceImpl implements DevicePlanStatService {
@@ -42,7 +40,6 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
 The class is marked by `@TaskService`, which could be scanned by Multi-Task framework. The `@TaskBean(task name)` is attached on the method. Then, the method could be regarded as parallel task. 
 
 ### 1.3 Applying parallely processing with defined task
-
 ```
     @Resource(name = "simpleParallelExePool")
     private ParallelExePool parallelExePool;
@@ -65,9 +62,7 @@ The class is marked by `@TaskService`, which could be scanned by Multi-Task fram
 The task deviceStatFetcher and deviceUvFetcher will be parallely processing and atomic return. Actually, the method queryPlanDeviceData and queryPlanDeviceUvData of class DevicePlanStatServiceImpl will be implicitly executed.
 
 ### 1.4 Some other type' TaskBean
-
-Besides single param method, We also could define multi-param or void param' method for task by using `@TaskBean`.
-
+Besides single param method, we could also define multi-param or void param' method for task by using `@TaskBean`.
 ```
 @TaskService
 public class OtherStatServiceImpl implements OtherStatService {
@@ -98,3 +93,7 @@ public class OtherStatServiceImpl implements OtherStatService {
     }
 }
 ```
+
+## 2 License
+-------
+This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
