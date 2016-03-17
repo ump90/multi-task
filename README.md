@@ -94,7 +94,7 @@ public class OtherStatServiceImpl implements OtherStatService {
 }
 ```
 
-## 2 Advanced features
+## 2. Advanced features
 ### 2.1 Explicit define task
 ```
 @Service
@@ -159,11 +159,11 @@ public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
 
 ## 3. Examples
 All test cases or samples can be found from the below links:
+
 [Samples](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)
 
 [Test cases](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test)
 
 [Optional resources](https://github.com/wangchongjie/multi-task/tree/master/src/test/resources)
 
-## 4. License
 This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
