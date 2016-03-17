@@ -94,5 +94,11 @@ public class OtherStatServiceImpl implements OtherStatService {
 }
 ```
 
-## 2. License
+##  Examples
+All test cases or samples can be found from the below links:
+[Samples](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)
+[Test cases](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test)
+[Optional resources](https://github.com/wangchongjie/multi-task/tree/master/src/test/resources)
+
+##  License
 This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
