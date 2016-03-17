@@ -39,8 +39,9 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     }
 }
 ```
+The class is marked by `@TaskService`, which could be scanned by Multi-Task framework. The `@TaskBean(task name)` is attached on the method. Then, the method could be regarded as parallel task. 
 
-### 1.3 Applying parallely processing with defined @TaskBean task
+### 1.3 Applying parallely processing with defined task
 
 ```
     @Resource(name = "simpleParallelExePool")
@@ -62,9 +63,9 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     }
 ```
 
-### 1.4 Some other TaskBean
+### 1.4 Some other type' TaskBean
 
-Besides single param method, We also could define multi-param or void param' method for task by using @TaskBean.
+Besides single param method, We also could define multi-param or void param' method for task by using `@TaskBean`.
 
 ```
 @TaskService
