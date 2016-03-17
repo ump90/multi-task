@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/wangchongjie/multi-task/badge.svg?branch=master)](https://coveralls.io/github/wangchongjie/multi-task?branch=master)
 ![](https://maven-badges.herokuapp.com/maven-central/com.baidu.unbiz/multi-task/badge.svg)
 
-Multi-task is a Java framework for parallel processing which is based annotation.
+Multi-task is a Java framework for parallel processing which is based annotation. That is high performance, not intrusive and loose coupled.
 
 ## 1. Quick Start
 This chapter will show you how to get started with Multi-Task.
@@ -62,6 +62,7 @@ The class is marked by `@TaskService`, which could be scanned by Multi-Task fram
         Assert.notEmpty(uv);
     }
 ```
+The task deviceStatFetcher and deviceUvFetcher will be parallely processing and atomic return. Actually, the method queryPlanDeviceData and queryPlanDeviceUvData of class DevicePlanStatServiceImpl will be implicitly executed.
 
 ### 1.4 Some other type' TaskBean
 
