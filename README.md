@@ -94,6 +94,5 @@ public class OtherStatServiceImpl implements OtherStatService {
 }
 ```
 
-## 2 License
--------
+## 2. License
 This project is licensed under [Apache v2 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
