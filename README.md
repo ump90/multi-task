@@ -96,6 +96,7 @@ public class OtherStatServiceImpl implements OtherStatService {
 
 ## 2. Advanced features
 ### 2.1 Explicit define task
+You can also define Task by implement `Taskable<T>` interface. But, not recommended.
 ```
 @Service
 public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
@@ -111,6 +112,7 @@ public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
 ```
 
 ### 2.2 Explicit config thread pool
+Multi-Task will specify the thread pool configuration automatically considering hardware resources. It is possible to set pool parameters explicitly as well. Examples are as follows.
 ```
     <bean name="xmlThreadPoolConfig" class="com.baidu.unbiz.multitask.constants.XmlThreadPoolConfig">
         <property name="coreTaskNum" value="12"/>
@@ -126,6 +128,7 @@ public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
 ```
 
 ### 2.3 Fork Join
+Multi-task could handle homogenous computing more friendly by fork-join mode. ForkJoin strategy should be provided to framework.
 ```
     public void testParallelForkJoinFetch() {
         TaskPair taskPair = new TaskPair("deviceStatFetcher", new DeviceRequest()));
