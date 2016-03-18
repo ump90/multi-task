@@ -240,6 +240,8 @@
     </scm>
 
     <url>https://github.com/wangchongjie/multi-task</url>
+    <name>multi-task</name>
+    <description>Multi-task is a Java framework for parallel processing which is based annotation.</description>
 
     <profiles>
         <profile>
