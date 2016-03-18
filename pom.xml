@@ -8,6 +8,9 @@
     <packaging>jar</packaging>
     <name>multi-task</name>
 
+    <url>https://github.com/wangchongjie/multi-task</url>
+    <description>Multi-task is a Java framework for parallel processing which is based annotation.</description>
+
     <properties>
         <!-- version variable -->
         <encoding>UTF-8</encoding>
@@ -238,10 +241,6 @@
         <connection>scm:git:git@github.com:wangchongjie/multi-task</connection>
         <tag>multi-task-1.0.0</tag>
     </scm>
-
-    <url>https://github.com/wangchongjie/multi-task</url>
-    <name>multi-task</name>
-    <description>Multi-task is a Java framework for parallel processing which is based annotation.</description>
 
     <profiles>
         <profile>
