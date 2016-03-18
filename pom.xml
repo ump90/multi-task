@@ -236,7 +236,7 @@
     <scm>
         <url>scm:git:git@github.com:wangchongjie/multi-task</url>
         <connection>scm:git:git@github.com:wangchongjie/multi-task</connection>
-        <tag>multi-task-1.0.0</tag>
+        <tag>multi-task</tag>
     </scm>
 
     <url>https://github.com/wangchongjie/multi-task</url>
