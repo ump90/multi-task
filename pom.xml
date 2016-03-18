@@ -8,6 +8,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>multi-task</name>
+    <description>Multi-task is a Java framework for parallel processing which is based annotation.</description>
 
     <properties>
         <!-- version variable -->
