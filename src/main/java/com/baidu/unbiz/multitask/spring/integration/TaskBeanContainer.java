@@ -96,7 +96,7 @@ public class TaskBeanContainer implements ApplicationContextAware, PriorityOrder
      *
      * @param beanName
      *
-     * @return
+     * @return bean
      */
     @SuppressWarnings("unchecked")
     public <T> T bean(String beanName) {
