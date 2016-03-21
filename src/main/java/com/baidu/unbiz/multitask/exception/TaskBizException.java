@@ -1,7 +1,7 @@
 package com.baidu.unbiz.multitask.exception;
 
 /**
- * 数据获取超时异常
+ * Task业务异常
  * 
  * @author wangchongjie
  * @since 2015-7-3 下午4:04:06
