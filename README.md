@@ -1,7 +1,7 @@
 # multi-task
 [![Build Status](https://travis-ci.org/wangchongjie/multi-task.svg?branch=master)](https://travis-ci.org/wangchongjie/multi-task)
 [![Coverage Status](https://coveralls.io/repos/github/wangchongjie/multi-task/badge.svg?branch=master)](https://coveralls.io/github/wangchongjie/multi-task?branch=master)
-![](https://maven-badges.herokuapp.com/maven-central/com.baidu.unbiz/multi-task/badge.svg)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.baidu.unbiz/multi-task/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22multi-task%22)
 
 Multi-task is a Java framework for parallel processing which is based annotation. That is high performance, not intrusive and loose coupled.
 
