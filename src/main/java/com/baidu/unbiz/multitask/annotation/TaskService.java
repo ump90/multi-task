@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
- * 标记为该注解的service类会被扫描方法上是否有FetcherBean注解，
+ * 标记为该注解的service类会被扫描方法上是否有TaskBean注解，
  * 若有则将相应方法wrap成一个spring的bean供使用
  *
  * @author wangchongjie
