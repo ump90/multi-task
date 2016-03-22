@@ -25,6 +25,8 @@ public class QueryParam extends EnableCast implements TaskRequest {
     protected int page;
     /** 每页大小 */
     protected int pageSize = 20;
+    /** 前端过滤字符 */
+    protected String query;
 
     public String getQuery() {
         return query;
@@ -73,9 +75,6 @@ public class QueryParam extends EnableCast implements TaskRequest {
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
-
-    /** 前端过滤字符 */
-    protected String query;
 
 
 }
