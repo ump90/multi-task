@@ -17,11 +17,7 @@ public class DeviceViewItem {
 
     private Integer deviceId;
 
-    /** 无线出价比例 */
-    private double bidRatio;
-
-    /** 计划属性：1-所有功能，2-仅无线 */
-    private Integer promotionType;
+    private String deviceName ;
 
     // getter and setter
     public int getPlanId() {
@@ -48,20 +44,13 @@ public class DeviceViewItem {
         this.planName = planName;
     }
 
-    public double getBidRatio() {
-        return bidRatio;
+    public String getDeviceName() {
+        return deviceName;
     }
 
-    public void setBidRatio(double bidRatio) {
-        this.bidRatio = bidRatio;
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
-    public Integer getPromotionType() {
-        return promotionType;
-    }
-
-    public void setPromotionType(Integer promotionType) {
-        this.promotionType = promotionType;
-    }
 
 }
