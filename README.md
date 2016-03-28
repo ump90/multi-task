@@ -160,6 +160,12 @@ Multi-task could handle homogenous computing more friendly by fork-join mode. Fo
     }
 ```
 
+### 2.4 ThreadLocal Support
+Multi-task will ingore ThreadLocal of Java by default. If you want to let the ThreadLocal take effect in running task, you should do the following configuration once:
+```
+    TaskContext.attachThreadLocal(MyThreadLocal.instance());
+```    
+    
 ## 3. Examples
 All test cases or samples can be found from the below links:
 
