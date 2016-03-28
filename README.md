@@ -48,7 +48,7 @@ The class is marked by `@TaskService`, which could be scanned by Multi-Task fram
         DeviceStatRequest req1 = new DeviceStatRequest();
         DeviceUvRequest req2 = new DeviceUvRequest();
 
-        TaskContext ctx = parallelExePool.submit(
+        MultiResult ctx = parallelExePool.submit(
                 new TaskPair("deviceStatFetcher", req1),
                 new TaskPair("deviceUvFetcher", req2));
 
