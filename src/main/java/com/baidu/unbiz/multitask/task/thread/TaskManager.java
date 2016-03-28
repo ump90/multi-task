@@ -35,7 +35,7 @@ public class TaskManager {
     // protected final Semaphore semaphore = new Semaphore(MaxCacheTaskNum);
 
     private static volatile ThreadPoolExecutor threadPool =
-            new ThreadPoolExecutor(config.coreTaskNum(), config.maxTaskNum(), 10, TimeUnit.SECONDS, taskQueue,
+            new CleanableThreadPoolExecutor(config.coreTaskNum(), config.maxTaskNum(), 10, TimeUnit.SECONDS, taskQueue,
                     new CustomizableThreadFactory("multi-task-pool-"), new ThreadPoolExecutor.CallerRunsPolicy());
 
     static {
@@ -149,5 +149,4 @@ public class TaskManager {
         }
         return new WorkUnit(executor);
     }
-
 }

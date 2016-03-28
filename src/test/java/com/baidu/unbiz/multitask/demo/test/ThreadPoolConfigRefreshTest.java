@@ -13,7 +13,7 @@ import org.springframework.util.Assert;
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.constants.DefaultThreadPoolConfig;
 import com.baidu.unbiz.multitask.task.ParallelExePool;
-import com.baidu.unbiz.multitask.task.thread.TaskContext;
+import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.task.thread.TaskManager;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
@@ -41,7 +41,7 @@ public class ThreadPoolConfigRefreshTest {
         QueryParam qp = new QueryParam();
         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp));
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
                         new TaskPair("deviceUvFetcher", DeviceRequest.build(qp)));

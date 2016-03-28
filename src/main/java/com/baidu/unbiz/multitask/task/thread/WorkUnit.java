@@ -1,6 +1,7 @@
 package com.baidu.unbiz.multitask.task.thread;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
@@ -12,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.baidu.unbiz.multitask.exception.TaskTimeoutException;
+import com.sun.tools.javac.util.Assert;
 
 /**
  * 一组工作单元,可视为一组原子操作
@@ -26,6 +28,7 @@ public class WorkUnit {
     private CompletionService<Void> completion;
     private Map<Future<?>, Runnable> futureMap = new ConcurrentHashMap<Future<?>, Runnable>();
     private int taskCount;
+    private Thread parentThread;
 
     /**
      * 构造函数，线程池委托给调用方
@@ -33,6 +36,7 @@ public class WorkUnit {
      * @param pool
      */
     public WorkUnit(Executor pool) {
+        parentThread = Thread.currentThread();
         completion = new ExecutorCompletionService<Void>(pool);
     }
 

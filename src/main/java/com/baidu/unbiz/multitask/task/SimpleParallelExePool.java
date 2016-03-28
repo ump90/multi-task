@@ -15,6 +15,7 @@ import com.baidu.unbiz.multitask.forkjoin.ForkJoin;
 import com.baidu.unbiz.multitask.log.AopLogFactory;
 import com.baidu.unbiz.multitask.policy.DefautExecutePolicy;
 import com.baidu.unbiz.multitask.policy.ExecutePolicy;
+import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.task.thread.TaskContext;
 import com.baidu.unbiz.multitask.task.thread.TaskManager;
 import com.baidu.unbiz.multitask.task.thread.TaskWrapper;
@@ -37,7 +38,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param taskPairs 查询方法及参数
      * @return TaskContext
      */
-    public TaskContext submit(List<TaskPair> taskPairs) {
+    public MultiResult submit(List<TaskPair> taskPairs) {
         // 使用默认超时时间fetch数据
         return submit(DefautExecutePolicy.instance(), taskPairs.toArray(new TaskPair[] {}));
     }
@@ -48,7 +49,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param taskPairs 查询方法及参数
      * @return TaskContext
      */
-    public TaskContext submit(TaskPair... taskPairs) {
+    public MultiResult submit(TaskPair... taskPairs) {
         // 使用默认超时时间fetch数据
         return submit(DefautExecutePolicy.instance(), taskPairs);
     }
@@ -60,7 +61,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param taskPairs 查询方法及参数
      * @return TaskContext
      */
-    public TaskContext submit(ExecutePolicy policy, TaskPair... taskPairs) {
+    public MultiResult submit(ExecutePolicy policy, TaskPair... taskPairs) {
         return this.submit(null, policy, taskPairs);
 
     }
@@ -72,7 +73,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param taskPairs 查询方法及参数
      * @return TaskContext
      */
-    public TaskContext submit(Executor executor, TaskPair... taskPairs) {
+    public MultiResult submit(Executor executor, TaskPair... taskPairs) {
         return this.submit(executor, DefautExecutePolicy.instance(), taskPairs);
     }
 
@@ -83,12 +84,14 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
      * @param taskPairs 查询方法及参数
      * @return TaskContext
      */
-    public TaskContext submit(Executor executor, ExecutePolicy policy, TaskPair... taskPairs) {
+    public MultiResult submit(Executor executor, ExecutePolicy policy, TaskPair... taskPairs) {
 
         TaskContext context = TaskContext.newContext();
         List<TaskWrapper> fetchers = TaskWrapper.wrapperFetcher(container, context, taskPairs);
 
         WorkUnit workUnit = TaskManager.newWorkUnit(executor);
+        context.copyAttachedthreadLocalValues();
+
         for (TaskWrapper fetcher : fetchers) {
             workUnit.submit(fetcher);
         }
@@ -132,7 +135,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
         for (PARAM param : params) {
             taskPairs.add(new TaskPair(taskPair.field1 + TaskConfig.TASKNAME_SEPARATOR + version++, param));
         }
-        TaskContext ctx = this.submit(policy, taskPair);
+        TaskContext ctx = (TaskContext) this.submit(policy, taskPair);
 
         List<RESULT> results = new ArrayList<RESULT>();
         for (String taskName : ctx.getResult().keySet()) {

@@ -16,7 +16,7 @@ import org.springframework.util.Assert;
 
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.task.CustomizedParallelExePool;
-import com.baidu.unbiz.multitask.task.thread.TaskContext;
+import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
 import com.baidu.unbiz.multitask.vo.QueryParam;
@@ -41,7 +41,7 @@ public class CustomizedParallelFetchTest {
         QueryParam qp = new QueryParam();
         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp));
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         threadPool,
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
@@ -68,14 +68,14 @@ public class CustomizedParallelFetchTest {
 
         QueryParam qp = new QueryParam();
 
-        TaskContext ctx1 =
+        MultiResult ctx1 =
                 parallelExePool.submit(
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
                         new TaskPair("deviceUvFetcher#1", DeviceRequest.build(qp)),
                         new TaskPair("deviceUvFetcher#2", DeviceRequest.build(qp)),
                         new TaskPair("deviceUvFetcher#3", DeviceRequest.build(qp)));
 
-        TaskContext ctx2 =
+        MultiResult ctx2 =
                 parallelExePool.submit(
                         threadPool,
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),

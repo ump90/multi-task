@@ -22,6 +22,8 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     @TaskBean("deviceStatFetcher")
     public List<DeviceViewItem> queryPlanDeviceData(DeviceRequest req) {
         this.checkParam(req);
+        // Test ThreadLocal
+        System.out.println(MyThreadLocal.get());
         return this.mockList1();
     }
 

@@ -21,7 +21,7 @@ import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 import com.baidu.unbiz.multitask.policy.TimeoutPolicy;
 import com.baidu.unbiz.multitask.task.ParallelExePool;
 import com.baidu.unbiz.multitask.task.Params;
-import com.baidu.unbiz.multitask.task.thread.TaskContext;
+import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
 import com.baidu.unbiz.multitask.vo.QueryParam;
@@ -40,7 +40,7 @@ public class SimpleParallelFetchTest {
     public void testParallelFetch() {
         QueryParam qp = new QueryParam();
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
                         new TaskPair("deviceUvFetcher", DeviceRequest.build(qp)));
@@ -62,7 +62,7 @@ public class SimpleParallelFetchTest {
         QueryParam qp = new QueryParam();
         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp));
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("explicitDefTask", DeviceRequest.build(qp)),
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
@@ -88,7 +88,7 @@ public class SimpleParallelFetchTest {
 
         Params params = Params.with(3).add("str").add(1).add(2);
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("multiParamFetcher", params.use()),
                         new TaskPair("voidParamFetcher", null),
@@ -112,7 +112,7 @@ public class SimpleParallelFetchTest {
         QueryParam qp1 = new QueryParam();
         QueryParam qp2 = new QueryParam();
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("deviceStatFetcher#1", DeviceRequest.build(qp1)),
                         new TaskPair("deviceStatFetcher#2", DeviceRequest.build(qp2)));
@@ -168,7 +168,7 @@ public class SimpleParallelFetchTest {
     public void testParallelFetchWithBusinessException() {
         QueryParam qp = new QueryParam();
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("doSthFailWithExceptionFetcher", DeviceRequest.build(qp)),
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
@@ -186,7 +186,7 @@ public class SimpleParallelFetchTest {
     public void testParallelFetchWithTimeOutExceptionByTimeoutPolicy() {
         QueryParam qp = new QueryParam();
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TimeoutPolicy(1),
                         new TaskPair("doSthVerySlowFetcher", DeviceRequest.build(qp)),
@@ -210,7 +210,7 @@ public class SimpleParallelFetchTest {
             }
         };
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         policy,
                         new TaskPair("doSthVerySlowFetcher", DeviceRequest.build(qp)),
@@ -228,7 +228,7 @@ public class SimpleParallelFetchTest {
     public void testParallelFetchWithTimeOutException() {
         QueryParam qp = new QueryParam();
 
-        TaskContext ctx =
+        MultiResult ctx =
                 parallelExePool.submit(
                         new TaskPair("doSthVerySlowFetcher", DeviceRequest.build(qp)),
                         new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),

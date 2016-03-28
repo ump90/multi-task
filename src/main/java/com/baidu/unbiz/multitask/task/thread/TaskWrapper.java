@@ -2,6 +2,7 @@ package com.baidu.unbiz.multitask.task.thread;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
@@ -115,6 +116,10 @@ public class TaskWrapper implements Runnable {
     @Override
     public void run() {
         try {
+            Set<ThreadLocal> tls = context.attachedThreadLocals();
+            for (ThreadLocal tl : tls) {
+                tl.set(context.attachedthreadLocalValues().get(tl));
+            }
             context.putResult(fetcherName(), fetcher.work(args));
         } catch (Exception ex) {
             context.throwException(fetcherName(), ex);
