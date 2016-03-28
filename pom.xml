@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.baidu.unbiz</groupId>
     <artifactId>multi-task</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>multi-task</name>
     <description>Multi-task is a Java framework for parallel processing which is based annotation.</description>
