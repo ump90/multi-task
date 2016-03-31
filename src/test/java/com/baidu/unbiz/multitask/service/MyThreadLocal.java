@@ -2,6 +2,7 @@ package com.baidu.unbiz.multitask.service;
 
 /**
  * Created by wangchongjie on 16/3/28.
+ * 供测试ThreadLocal在MultiTask的任务中跨线程传递
  */
 public class MyThreadLocal {
 
