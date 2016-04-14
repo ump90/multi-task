@@ -8,6 +8,9 @@ package com.baidu.unbiz.multitask.common;
  */
 public class TaskPair extends Pair<String, Object> {
 
+    public TaskPair() {
+    }
+
     public TaskPair(String taskName, Object param) {
         this.field1 = taskName;
         this.field2 = param;
