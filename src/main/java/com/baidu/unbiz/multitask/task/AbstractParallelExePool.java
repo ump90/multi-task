@@ -4,10 +4,13 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 
+import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.constants.ThreadPoolConfig;
 import com.baidu.unbiz.multitask.log.AopLogFactory;
-import com.baidu.unbiz.multitask.task.thread.TaskManager;
+import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
+import com.baidu.unbiz.multitask.task.thread.TaskContext;
+import com.baidu.unbiz.multitask.task.thread.TaskManager;
 
 /**
  * 报表基础工具类
@@ -21,6 +24,18 @@ public abstract class AbstractParallelExePool implements ParallelExePool {
 
     @Resource(name = "taskBeanContainer")
     protected TaskBeanContainer container;
+
+    public TaskContext beforeSubmit(TaskContext context, ExecutePolicy policy, TaskPair... taskPairs) {
+        return context.putAttribute(TASK_PAIRS, taskPairs);
+    }
+
+    public TaskContext onSubmit(TaskContext context, ExecutePolicy policy, TaskPair... taskPairs) {
+        return context;
+    }
+
+    public TaskContext postSubmit(TaskContext context, ExecutePolicy policy, TaskPair... taskPairs) {
+        return context;
+    }
 
     public AbstractParallelExePool() {
     }

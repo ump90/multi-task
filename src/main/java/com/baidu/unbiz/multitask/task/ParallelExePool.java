@@ -10,6 +10,8 @@ import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 
 public interface ParallelExePool {
 
+    String TASK_PAIRS = "taskPairs";
+
     MultiResult submit(List<TaskPair> taskPairs);
 
     MultiResult submit(TaskPair... taskPairs);

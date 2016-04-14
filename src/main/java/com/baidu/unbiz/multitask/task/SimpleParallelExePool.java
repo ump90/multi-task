@@ -32,6 +32,7 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
 
     protected static final Logger LOG = AopLogFactory.getLogger(SimpleParallelExePool.class);
 
+
     /**
      * 并行获取报表数据，计算结果保存在context中
      *
@@ -87,7 +88,10 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
     public MultiResult submit(Executor executor, ExecutePolicy policy, TaskPair... taskPairs) {
 
         TaskContext context = TaskContext.newContext();
-        List<TaskWrapper> fetchers = TaskWrapper.wrapperFetcher(container, context, taskPairs);
+        beforeSubmit(context, policy, taskPairs);
+
+        TaskPair[] lTaskPairs = context.getAttribute(TASK_PAIRS);
+        List<TaskWrapper> fetchers = TaskWrapper.wrapperFetcher(container, context, lTaskPairs);
 
         WorkUnit workUnit = TaskManager.newWorkUnit(executor);
         context.copyAttachedthreadLocalValues();
@@ -95,8 +99,10 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
         for (TaskWrapper fetcher : fetchers) {
             workUnit.submit(fetcher);
         }
-        workUnit.waitForCompletion(policy.taskTimeout());
+        onSubmit(context, policy, taskPairs);
 
+        workUnit.waitForCompletion(policy.taskTimeout());
+        postSubmit(context, policy, taskPairs);
         return context;
     }
 

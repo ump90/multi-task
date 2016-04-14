@@ -40,6 +40,11 @@ public class TaskContext implements MultiResult {
     private Map<ThreadLocal, Object> threadLocalValues = new HashMap<ThreadLocal, Object>();
 
     /**
+     * 执行环境上下文属性
+     */
+    private Map<String, Object> attribute = new ConcurrentHashMap<String, Object>();
+
+    /**
      * 结果数据存储
      *
      * @param key
@@ -140,6 +145,15 @@ public class TaskContext implements MultiResult {
         for (ThreadLocal tl : threadLocalSet) {
             threadLocalValues.put(tl, tl.get());
         }
+    }
+
+    public <T> T getAttribute(String key) {
+        return (T) attribute.get(key);
+    }
+
+    public <T> TaskContext putAttribute(String key, T value) {
+        attribute.put(key, value);
+        return this;
     }
 
 }
