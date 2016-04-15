@@ -25,6 +25,7 @@ public abstract class AbstractParallelExePool implements ParallelExePool {
     @Resource(name = "taskBeanContainer")
     protected TaskBeanContainer container;
 
+
     public TaskContext beforeSubmit(TaskContext context, ExecutePolicy policy, TaskPair... taskPairs) {
         return context.putAttribute(TASK_PAIRS, taskPairs);
     }

@@ -32,7 +32,6 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
 
     protected static final Logger LOG = AopLogFactory.getLogger(SimpleParallelExePool.class);
 
-
     /**
      * 并行获取报表数据，计算结果保存在context中
      *
