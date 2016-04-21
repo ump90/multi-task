@@ -15,4 +15,8 @@ public class TaskPair extends Pair<String, Object> {
         this.field1 = taskName;
         this.field2 = param;
     }
+
+    public TaskPair wrap(String taskName, Object param) {
+        return new TaskPair(taskName, param);
+    }
 }

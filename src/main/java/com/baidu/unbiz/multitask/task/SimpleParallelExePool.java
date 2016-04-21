@@ -138,9 +138,9 @@ public class SimpleParallelExePool extends AbstractParallelExePool implements Cu
         int version = 0;
         List<TaskPair> taskPairs = new ArrayList<TaskPair>();
         for (PARAM param : params) {
-            taskPairs.add(new TaskPair(taskPair.field1 + TaskConfig.TASKNAME_SEPARATOR + version++, param));
+            taskPairs.add(taskPair.wrap(taskPair.field1 + TaskConfig.TASKNAME_SEPARATOR + version++, param));
         }
-        TaskContext ctx = (TaskContext) this.submit(policy, taskPair);
+        TaskContext ctx = (TaskContext) this.submit(policy, taskPairs.toArray(new TaskPair[]{}));
 
         List<RESULT> results = new ArrayList<RESULT>();
         for (String taskName : ctx.getResult().keySet()) {
