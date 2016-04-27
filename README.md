@@ -7,6 +7,7 @@ Multi-task is a Java framework for parallel processing which is based annotation
 
 ## 1. Quick Start
 This chapter will show you how to get started with Multi-Task.
+[中文使用说明](https://github.com/wangchongjie/multi-engine/wiki)
 
 ### 1.1 Prerequisite
 In order to use Multi-Task within a Maven project, simply add the following dependency to your pom.xml. 
