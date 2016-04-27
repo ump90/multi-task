@@ -14,6 +14,7 @@
     <context:component-scan base-package="com.baidu.unbiz.multitask"/>
 
     <!-- 显式配置线程执行环境，可选择性覆盖 -->
+
     <!--
     <bean name="xmlThreadPoolConfig" class="com.baidu.unbiz.multitask.constants.XmlThreadPoolConfig">
         <property name="coreTaskNum" value="12"/>
