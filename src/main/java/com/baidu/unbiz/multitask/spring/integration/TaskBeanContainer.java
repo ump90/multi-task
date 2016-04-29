@@ -146,7 +146,23 @@ public class TaskBeanContainer implements ApplicationContextAware, PriorityOrder
         }
     }
 
-
+    /**
+     * 显式注册TaskBean
+     *
+     * @param service
+     * @param beanName
+     * @param funcName
+     * @param paramsType
+     */
+    public static void registerTaskBean(Object service, String beanName, String funcName, Class<?>... paramsType) {
+        Method method = null;
+        try {
+            method = service.getClass().getMethod(funcName, paramsType);
+        } catch (NoSuchMethodException e) {
+            LOG.error("register TaskBean fail:", e);
+        }
+        registerFetcher(service, method, beanName);
+    }
 
     /**
      * spring bean是否存在

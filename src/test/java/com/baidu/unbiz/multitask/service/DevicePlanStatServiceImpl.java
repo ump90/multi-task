@@ -23,7 +23,7 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     public List<DeviceViewItem> queryPlanDeviceData(DeviceRequest req) {
         this.checkParam(req);
         // Test ThreadLocal
-        // System.out.println(MyThreadLocal.get());
+        System.out.println("MyThreadLocal:" + MyThreadLocal.get());
         return this.mockList1();
     }
 
