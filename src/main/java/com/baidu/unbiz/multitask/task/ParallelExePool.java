@@ -4,9 +4,8 @@ import java.util.List;
 
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.forkjoin.ForkJoin;
-import com.baidu.unbiz.multitask.task.thread.MultiResult;
-import com.baidu.unbiz.multitask.task.thread.TaskContext;
 import com.baidu.unbiz.multitask.policy.ExecutePolicy;
+import com.baidu.unbiz.multitask.task.thread.MultiResult;
 
 public interface ParallelExePool {
 

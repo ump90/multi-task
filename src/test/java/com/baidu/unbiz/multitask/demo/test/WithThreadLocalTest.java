@@ -26,7 +26,6 @@ public class WithThreadLocalTest {
     @Resource(name = "simpleParallelExePool")
     private ParallelExePool parallelExePool;
 
-
     /**
      * 测试ThreadLoal可正常传递至执行task中
      */
@@ -66,7 +65,7 @@ public class WithThreadLocalTest {
         List<DeviceViewItem> uv = ctx.getResult("deviceUvFetcher");
 
         TaskContext.detachThreadLocal(MyThreadLocal.instance());
-        for (int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             parallelExePool.submit(
                     new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
                     new TaskPair("deviceUvFetcher", DeviceRequest.build(qp)));
@@ -76,7 +75,7 @@ public class WithThreadLocalTest {
 
         TaskContext.attachThreadLocal(MyThreadLocal.instance());
         MyThreadLocal.set("new msg from caller.");
-        for (int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             parallelExePool.submit(
                     new TaskPair("deviceStatFetcher", DeviceRequest.build(qp)),
                     new TaskPair("deviceUvFetcher", DeviceRequest.build(qp)));
