@@ -7,6 +7,9 @@ import com.baidu.unbiz.multitask.forkjoin.ForkJoin;
 import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 import com.baidu.unbiz.multitask.task.thread.MultiResult;
 
+/**
+ * 任务并行执行资源池，提供资源和计算模型的封装等
+ */
 public interface ParallelExePool {
 
     String TASK_PAIRS = "taskPairs";
