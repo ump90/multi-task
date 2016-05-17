@@ -7,7 +7,7 @@ import com.baidu.unbiz.multitask.policy.DefautExecutePolicy;
  */
 public class TimeoutPolicy extends DefautExecutePolicy {
 
-    long timeout;
+    private long timeout;
 
     /**
      * @return 任务超时时间，单位毫秒
