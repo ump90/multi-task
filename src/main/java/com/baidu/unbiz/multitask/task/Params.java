@@ -3,6 +3,8 @@ package com.baidu.unbiz.multitask.task;
 import com.baidu.unbiz.multitask.exception.TaskBizException;
 
 /**
+ * TaskBean执行参数辅助类
+ *
  * Created by baidu on 15/12/24.
  */
 public class Params {
