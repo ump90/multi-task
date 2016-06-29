@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -13,8 +12,6 @@ import org.springframework.util.Assert;
 
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.service.MyThreadLocal;
-import com.baidu.unbiz.multitask.service.SitePlanStatService;
-import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
 import com.baidu.unbiz.multitask.task.ParallelExePool;
 import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.task.thread.TaskContext;
