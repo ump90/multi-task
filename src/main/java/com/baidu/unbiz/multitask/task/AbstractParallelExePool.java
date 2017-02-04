@@ -16,7 +16,7 @@ import com.baidu.unbiz.multitask.task.thread.TaskManager;
  * 报表基础工具类
  *
  * @author wangchongjie
- * @since 2015-1-15 下午3:08:21
+ * @since 2015-8-15 下午3:08:21
  */
 public abstract class AbstractParallelExePool implements ParallelExePool {
 

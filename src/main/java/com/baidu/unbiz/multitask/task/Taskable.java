@@ -4,7 +4,7 @@ package com.baidu.unbiz.multitask.task;
  * 并行数据抓取通用接口
  * 
  * @author wangchongjie
- * @since 2014-11-21 下午7:50:10
+ * @since 2015-11-21 下午7:50:10
  */
 public interface Taskable<T> {
 

@@ -17,7 +17,7 @@ import com.baidu.unbiz.multitask.exception.TaskTimeoutException;
  * 一组工作单元,可视为一组原子操作
  *
  * @author wangchongjie
- * @since 2014-12-3 下午3:56:36
+ * @since 2015-12-3 下午3:56:36
  */
 public class WorkUnit {
 

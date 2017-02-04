@@ -28,7 +28,7 @@ import com.baidu.unbiz.multitask.task.Taskable;
  * Fetcher Bean容器，与spring集成
  *
  * @author wangchongjie
- * @since 2015-1-9 下午2:18:00
+ * @since 2015-8-9 下午2:18:00
  */
 @Component
 public class TaskBeanContainer implements ApplicationContextAware, PriorityOrdered {

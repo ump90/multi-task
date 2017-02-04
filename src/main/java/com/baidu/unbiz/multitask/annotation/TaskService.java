@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * 若有则将相应方法wrap成一个spring的bean供使用
  *
  * @author wangchongjie
- * @since 2015-7-3 下午3:53:47
+ * @since 2015-8-3 下午3:53:47
  */
 @Inherited
 @Target(ElementType.TYPE)

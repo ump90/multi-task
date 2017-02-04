@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Class相关工具类
  * 
  * @author wangchongjie
- * @since 2014-7-16 下午3:02:20
+ * @since 2015-7-16 下午3:02:20
  */
 public class ClassUtils {
 

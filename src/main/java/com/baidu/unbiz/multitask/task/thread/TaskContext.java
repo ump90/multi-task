@@ -15,7 +15,7 @@ import com.baidu.unbiz.multitask.exception.TaskBizException;
  * 并行抓取上线文环境
  *
  * @author wangchongjie
- * @since 2014-11-21 下午7:58:49
+ * @since 2015-11-21 下午7:58:49
  */
 public class TaskContext implements MultiResult {
 

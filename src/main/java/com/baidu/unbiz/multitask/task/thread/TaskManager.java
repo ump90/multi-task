@@ -20,7 +20,7 @@ import com.baidu.unbiz.multitask.constants.ThreadPoolConfig;
  * 报表可并行处理的任务管理器
  *
  * @author wangchongjie
- * @since 2014-11-21 下午7:57:37
+ * @since 2015-11-21 下午7:57:37
  */
 public class TaskManager {
 

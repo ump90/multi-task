@@ -14,7 +14,7 @@ import com.baidu.unbiz.multitask.utils.AssistUtils;
  * 报表数据抓取类包装器，包装为可执行类
  *
  * @author wangchongjie
- * @since 2014-11-21 下午7:57:58
+ * @since 2015-11-21 下午7:57:58
  */
 public class TaskWrapper implements Runnable {
 
