@@ -1,13 +1,11 @@
 package com.baidu.unbiz.multitask.service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.stereotype.Service;
-
 import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by wangchongjie on 16/4/29.

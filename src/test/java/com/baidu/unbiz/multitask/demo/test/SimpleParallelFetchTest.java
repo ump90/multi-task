@@ -1,17 +1,5 @@
 package com.baidu.unbiz.multitask.demo.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.Assert;
-import org.springframework.util.CollectionUtils;
-
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.exception.BusinessException;
 import com.baidu.unbiz.multitask.exception.TaskTimeoutException;
@@ -25,6 +13,15 @@ import com.baidu.unbiz.multitask.task.thread.MultiResult;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
 import com.baidu.unbiz.multitask.vo.QueryParam;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Resource;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext-test.xml")

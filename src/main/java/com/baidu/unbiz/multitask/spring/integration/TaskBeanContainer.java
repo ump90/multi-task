@@ -1,11 +1,14 @@
 package com.baidu.unbiz.multitask.spring.integration;
 
+import com.baidu.unbiz.multitask.annotation.TaskBean;
+import com.baidu.unbiz.multitask.annotation.TaskService;
+import com.baidu.unbiz.multitask.exception.TaskBizException;
+import com.baidu.unbiz.multitask.task.Taskable;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -18,11 +21,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.PriorityOrdered;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
-
-import com.baidu.unbiz.multitask.annotation.TaskBean;
-import com.baidu.unbiz.multitask.annotation.TaskService;
-import com.baidu.unbiz.multitask.exception.TaskBizException;
-import com.baidu.unbiz.multitask.task.Taskable;
 
 /**
  * Fetcher Bean容器，与spring集成

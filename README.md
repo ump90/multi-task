@@ -1,16 +1,21 @@
 # multi-task
+
 [![Build Status](https://travis-ci.org/wangchongjie/multi-task.svg?branch=master)](https://travis-ci.org/wangchongjie/multi-task)
 [![Coverage Status](https://coveralls.io/repos/github/wangchongjie/multi-task/badge.svg?branch=master)](https://coveralls.io/github/wangchongjie/multi-task?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.baidu.unbiz/multi-task/badge.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.baidu.unbiz%22%20AND%20a%3A%22multi-task%22)
 
-Multi-task is a Java framework for parallel processing which is based annotation. That is high performance, not intrusive and loose coupled.
+Multi-task is a Java framework for parallel processing which is based annotation. That is high performance, not
+intrusive and loose coupled.
 
 ## 1. Quick Start
+
 This chapter will show you how to get started with Multi-Task.
 [中文使用说明](https://github.com/wangchongjie/multi-engine/wiki)
 
 ### 1.1 Prerequisite
-In order to use Multi-Task within a Maven project, simply add the following dependency to your pom.xml. 
+
+In order to use Multi-Task within a Maven project, simply add the following dependency to your pom.xml.
+
 ```
 	<dependency>
     	<groupId>com.baidu.unbiz</groupId>
@@ -20,7 +25,10 @@ In order to use Multi-Task within a Maven project, simply add the following depe
 ```
 
 ### 1.2 Create a normal service with annotation
-Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl class is created as below.
+
+Create a normal service class whose methods will be called parallely on later. For example, a DevicePlanStatServiceImpl
+class is created as below.
+
 ```
 @TaskService
 public class DevicePlanStatServiceImpl implements DevicePlanStatService {
@@ -38,9 +46,12 @@ public class DevicePlanStatServiceImpl implements DevicePlanStatService {
     }
 }
 ```
-The class is marked by `@TaskService`, which could be scanned by Multi-Task framework. The `@TaskBean(task name)` is attached on the method. Then, the method could be regarded as parallel task. 
+
+The class is marked by `@TaskService`, which could be scanned by Multi-Task framework. The `@TaskBean(task name)` is
+attached on the method. Then, the method could be regarded as parallel task.
 
 ### 1.3 Applying parallely processing with defined task
+
 ```
     @Resource(name = "simpleParallelExePool")
     private ParallelExePool parallelExePool;
@@ -60,10 +71,14 @@ The class is marked by `@TaskService`, which could be scanned by Multi-Task fram
         Assert.notEmpty(uv);
     }
 ```
-The task deviceStatFetcher and deviceUvFetcher will be parallely processing and atomic return. Actually, the method queryPlanDeviceData and queryPlanDeviceUvData of class DevicePlanStatServiceImpl will be implicitly executed.
+
+The task deviceStatFetcher and deviceUvFetcher will be parallely processing and atomic return. Actually, the method
+queryPlanDeviceData and queryPlanDeviceUvData of class DevicePlanStatServiceImpl will be implicitly executed.
 
 ### 1.4 Some other type' TaskBean
+
 Besides single param method, we could also define multi-param or void param' method for task by using `@TaskBean`.
+
 ```
 @TaskService
 public class OtherStatServiceImpl implements OtherStatService {
@@ -96,8 +111,11 @@ public class OtherStatServiceImpl implements OtherStatService {
 ```
 
 ## 2. Advanced features
+
 ### 2.1 Explicit define task
+
 You can also define Task by implement `Taskable<T>` interface. But, not recommended.
+
 ```
 @Service
 public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
@@ -113,7 +131,10 @@ public class ExplicitDefTask implements Taskable<List<DeviceViewItem>> {
 ```
 
 ### 2.2 Explicit config thread pool
-Multi-Task will specify the thread pool configuration automatically considering hardware resources. It is possible to set pool parameters explicitly as well. Examples are as follows.
+
+Multi-Task will specify the thread pool configuration automatically considering hardware resources. It is possible to
+set pool parameters explicitly as well. Examples are as follows.
+
 ```
     <bean name="xmlThreadPoolConfig" class="com.baidu.unbiz.multitask.constants.XmlThreadPoolConfig">
         <property name="coreTaskNum" value="12"/>
@@ -129,7 +150,10 @@ Multi-Task will specify the thread pool configuration automatically considering 
 ```
 
 ### 2.3 Fork Join
-Multi-task could handle homogenous computing more friendly by fork-join mode. ForkJoin strategy should be provided to framework.
+
+Multi-task could handle homogenous computing more friendly by fork-join mode. ForkJoin strategy should be provided to
+framework.
+
 ```
     public void testParallelForkJoinFetch() {
         TaskPair taskPair = new TaskPair("deviceStatFetcher", new DeviceRequest()));
@@ -162,12 +186,16 @@ Multi-task could handle homogenous computing more friendly by fork-join mode. Fo
 ```
 
 ### 2.4 ThreadLocal Support
-Multi-task will ingore ThreadLocal of Java by default. If you want to let the ThreadLocal take effect in running task, you should do the following configuration once:
+
+Multi-task will ingore ThreadLocal of Java by default. If you want to let the ThreadLocal take effect in running task,
+you should do the following configuration once:
+
 ```
     TaskContext.attachThreadLocal(MyThreadLocal.instance());
 ```    
-    
+
 ## 3. Examples
+
 All test cases or samples can be found from the below links:
 
 [Samples - How to define task](https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/service)

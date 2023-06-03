@@ -1,14 +1,13 @@
 package com.baidu.unbiz.multitask.task.thread;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.spring.integration.TaskBeanContainer;
 import com.baidu.unbiz.multitask.task.Taskable;
 import com.baidu.unbiz.multitask.utils.ArrayUtils;
 import com.baidu.unbiz.multitask.utils.AssistUtils;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 报表数据抓取类包装器，包装为可执行类

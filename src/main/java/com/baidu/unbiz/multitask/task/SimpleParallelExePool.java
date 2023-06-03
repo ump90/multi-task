@@ -1,13 +1,5 @@
 package com.baidu.unbiz.multitask.task;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executor;
-
-import org.slf4j.Logger;
-import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.constants.TaskConfig;
 import com.baidu.unbiz.multitask.constants.ThreadPoolConfig;
@@ -20,6 +12,12 @@ import com.baidu.unbiz.multitask.task.thread.TaskContext;
 import com.baidu.unbiz.multitask.task.thread.TaskManager;
 import com.baidu.unbiz.multitask.task.thread.TaskWrapper;
 import com.baidu.unbiz.multitask.task.thread.WorkUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executor;
+import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 报表基础工具类

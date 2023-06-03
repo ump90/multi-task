@@ -1,6 +1,5 @@
 package com.baidu.unbiz.multitask.policy;
 
-import com.baidu.unbiz.multitask.policy.DefautExecutePolicy;
 
 /**
  * Created by wangchongjie on 15/12/22.

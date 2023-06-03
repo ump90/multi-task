@@ -17,11 +17,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TaskBean {
 
-    /**
-     * task bean的名称
-     * 
-     * @return bean name
-     * @since 2015-8-17
-     */
-    String value();
+  /**
+   * task bean的名称
+   *
+   * @return bean name
+   * @since 2015-8-17
+   */
+  String value();
 }

@@ -1,10 +1,9 @@
 package com.baidu.unbiz.multitask.task;
 
-import java.util.concurrent.Executor;
-
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 import com.baidu.unbiz.multitask.task.thread.MultiResult;
+import java.util.concurrent.Executor;
 
 public interface CustomizedParallelExePool extends ParallelExePool {
 

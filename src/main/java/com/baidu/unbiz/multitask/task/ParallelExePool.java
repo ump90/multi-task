@@ -1,11 +1,10 @@
 package com.baidu.unbiz.multitask.task;
 
-import java.util.List;
-
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.forkjoin.ForkJoin;
 import com.baidu.unbiz.multitask.policy.ExecutePolicy;
 import com.baidu.unbiz.multitask.task.thread.MultiResult;
+import java.util.List;
 
 /**
  * 任务并行执行资源池，提供资源和计算模型的封装等

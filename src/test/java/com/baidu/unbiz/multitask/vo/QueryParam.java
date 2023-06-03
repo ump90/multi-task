@@ -1,9 +1,8 @@
 package com.baidu.unbiz.multitask.vo;
 
-import java.util.Date;
-
 import com.baidu.unbiz.multitask.common.EnableCast;
 import com.baidu.unbiz.multitask.task.TaskRequest;
+import java.util.Date;
 
 /**
  * 封装前端的查询参数

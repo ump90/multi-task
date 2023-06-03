@@ -1,5 +1,6 @@
 package com.baidu.unbiz.multitask.task.thread;
 
+import com.baidu.unbiz.multitask.exception.TaskTimeoutException;
 import java.util.Map;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ConcurrentHashMap;
@@ -7,11 +8,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import com.baidu.unbiz.multitask.exception.TaskTimeoutException;
 
 /**
  * 一组工作单元,可视为一组原子操作

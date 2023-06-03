@@ -1,5 +1,7 @@
 package com.baidu.unbiz.multitask.task.thread;
 
+import com.baidu.unbiz.multitask.constants.DefaultThreadPoolConfig;
+import com.baidu.unbiz.multitask.constants.ThreadPoolConfig;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -8,13 +10,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
-
-import com.baidu.unbiz.multitask.constants.DefaultThreadPoolConfig;
-import com.baidu.unbiz.multitask.constants.ThreadPoolConfig;
 
 /**
  * 报表可并行处理的任务管理器

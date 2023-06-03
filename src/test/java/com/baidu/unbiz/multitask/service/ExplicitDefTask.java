@@ -1,13 +1,11 @@
 package com.baidu.unbiz.multitask.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.baidu.unbiz.multitask.task.Taskable;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by wangchongjie on 15/12/21.

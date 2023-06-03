@@ -1,9 +1,8 @@
 package com.baidu.unbiz.multitask.service;
 
-import java.util.List;
-
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
+import java.util.List;
 
 /**
  * 获取设备数据接口

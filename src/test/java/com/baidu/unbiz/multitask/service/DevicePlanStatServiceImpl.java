@@ -1,13 +1,12 @@
 package com.baidu.unbiz.multitask.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.baidu.unbiz.multitask.annotation.TaskBean;
 import com.baidu.unbiz.multitask.annotation.TaskService;
 import com.baidu.unbiz.multitask.exception.BusinessException;
 import com.baidu.unbiz.multitask.vo.DeviceRequest;
 import com.baidu.unbiz.multitask.vo.DeviceViewItem;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 该类会被并行组件监测到，并将其方法包装成可并行执行的Fetcher

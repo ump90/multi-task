@@ -1,10 +1,9 @@
 package com.baidu.unbiz.multitask.common;
 
+import com.baidu.unbiz.multitask.utils.ClassUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-
-import com.baidu.unbiz.multitask.utils.ClassUtils;
 
 /**
  * 通过new<T>的方式可以感知范型，也可自行传入
